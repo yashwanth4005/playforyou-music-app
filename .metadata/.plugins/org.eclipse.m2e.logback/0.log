@@ -69,3 +69,4 @@
 2026-03-22 11:27:02,817 [Worker-39: Launching PlayForYouApp - PlayForYouAppApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2026-03-22 11:27:02,854 [Worker-39: Launching PlayForYouApp - PlayForYouAppApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2026-03-22 11:27:02,863 [Worker-39: Launching PlayForYouApp - PlayForYouAppApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory D:\Projects\PlayForYou-Music-Application-main\playForYou-Backend\PlayForYouApp\src\test\resources
+2026-03-22 15:20:18,991 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
