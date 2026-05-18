@@ -27,11 +27,6 @@ function FallbackScreen() {
   );
 }
 
-function HomeRedirect() {
-  const user = JSON.parse(localStorage.getItem("playforyou-user") || "null");
-  return <Navigate to={user?.role === "ADMIN" ? "/admin" : "/home"} replace />;
-}
-
 function App() {
   return (
     <ThemeProvider>
@@ -42,6 +37,8 @@ function App() {
               <AnimatePresence mode="wait">
                 <Suspense fallback={<FallbackScreen />}>
                   <Routes>
+
+                    {/* Public Auth Route */}
                     <Route
                       path="/auth"
                       element={
@@ -50,20 +47,30 @@ function App() {
                         </AuthRoute>
                       }
                     />
-                    <Route
-                      path="/"
-                      element={
-                        <ProtectedRoute>
-                          <AppShell />
-                        </ProtectedRoute>
-                      }
-                    >
-                      <Route index element={<HomeRedirect />} />
+
+                    {/* Main App Routes */}
+                    <Route path="/" element={<AppShell />}>
+                      
+                      {/* Default Home Page */}
+                      <Route index element={<HomeView />} />
+
+                      {/* Public Pages */}
                       <Route path="home" element={<HomeView />} />
                       <Route path="search" element={<SearchView />} />
                       <Route path="library" element={<LibraryView />} />
                       <Route path="song/:songId" element={<SongDetailsView />} />
-                      <Route path="profile" element={<ProfileView />} />
+
+                      {/* Protected User Route */}
+                      <Route
+                        path="profile"
+                        element={
+                          <ProtectedRoute>
+                            <ProfileView />
+                          </ProtectedRoute>
+                        }
+                      />
+
+                      {/* Admin Routes */}
                       <Route
                         path="admin"
                         element={
@@ -72,6 +79,7 @@ function App() {
                           </RoleRoute>
                         }
                       />
+
                       <Route
                         path="admin/upload"
                         element={
@@ -80,6 +88,7 @@ function App() {
                           </RoleRoute>
                         }
                       />
+
                       <Route
                         path="admin/songs"
                         element={
@@ -89,7 +98,10 @@ function App() {
                         }
                       />
                     </Route>
+
+                    {/* Redirect Unknown Routes */}
                     <Route path="*" element={<Navigate to="/" replace />} />
+
                   </Routes>
                 </Suspense>
               </AnimatePresence>

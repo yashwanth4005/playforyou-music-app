@@ -1,6 +1,0 @@
-spring.datasource.url=jdbc:mysql://localhost/playforyou_db
-spring.datasource.username=root
-spring.datasource.password=shriharsh27
-spring.jpa.hibernate.ddl-auto=update
-spring.profiles.active=dev
-server.servlet.session.timeout=1800
